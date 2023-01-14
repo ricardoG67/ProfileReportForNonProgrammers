@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <title>Generador reporte</title>
+</head>
+<style>
+    body {
+        background-color: #e9ecef;
+    }
+</style>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Generador de análisis exploratorio</h1>
+            <p class="lead">Genere un análisis exploratorio de su data en segundos. Gracias a python y a la libreria
+                Pandas-profilling
+                se creara un archivo en .html con el que podrá interactuar y ver todo lo referente a la data con la que
+                cuenta.
+            </p>
+            <form action="/carga" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">Escoga un archivo .CSV</label>
+                    <input type="file" name="file" id="file" accept=".csv" class="form-control-file" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Subir</button>
+                <small class="text-secondary">Ingrese archivos que pesen hasta 2MB.</small>
+
+            </form>
+            <hr class="my-4">
+            <p class="text-secondary">El proceso puede tomar hasta un minuto, por favor, espere. </p>
+            <p class="text-secondary">De presentarse algún error comunicarse al siguiente correo: <a
+                href="mailto:ricardogabriel5101@gmail.com">ricardogabriel5101@gmail.com</a></p>
+        </div>
+
+    </div>
+    
+    <script>
+        var uploadField = document.getElementById("file");
+        uploadField.onchange = function () {
+            if (this.files[0].size > 2097152) {
+                alert("¡El archivo es demasiado pesado!");
+                this.value = "";
+            };
+        };
+    </script>
+
+</body>
+
+</html>
