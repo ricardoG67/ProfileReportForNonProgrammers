@@ -13,6 +13,9 @@
     body {
         background-color: #e9ecef;
     }
+    video::-webkit-media-controls {
+        display: none;
+    }
 </style>
 
 <body>
@@ -31,10 +34,15 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Subir</button>
                 <small class="text-secondary">Ingrese archivos que pesen hasta 2MB.</small>
+                <br>
+                <small class="text-secondary">El proceso puede tomar hasta un minuto, por favor, espere. </small>
 
             </form>
             <hr class="my-4">
-            <p class="text-secondary">El proceso puede tomar hasta un minuto, por favor, espere. </p>
+            <h4>Demo:</h4>
+            <video id="myVideo" controls="false" loop style="width:70%;" autoplay="true"
+            src="{{ url_for('static', filename='video.mp4')}}" muted="muted">
+            </video>
             <p class="text-secondary">De presentarse algún error comunicarse al siguiente correo: <a
                 href="mailto:ricardogabriel5101@gmail.com">ricardogabriel5101@gmail.com</a></p>
         </div>
@@ -50,6 +58,7 @@
             };
         };
     </script>
+
 
 </body>
 
